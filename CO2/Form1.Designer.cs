@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Home = new System.Windows.Forms.TabPage();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -48,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtboxEinstellungConnectionString = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkInitialWert)).BeginInit();
@@ -189,7 +191,7 @@
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(238, 37);
             this.btnSend.TabIndex = 7;
-            this.btnSend.Text = "Beginn zu senden";
+            this.btnSend.Text = "Start";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
@@ -290,6 +292,11 @@
             this.txtboxEinstellungConnectionString.Text = "HostName=my-IoT-Hub26.azure-devices.net;DeviceId=Dev.27;SharedAccessKey=h8WtYrwKQ" +
     "81E6Vbp6iiGBge1t8lOfRRJvnwHJGG3Jfk=";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +336,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtInitialWert;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

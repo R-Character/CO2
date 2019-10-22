@@ -1,23 +1,28 @@
-﻿using Microsoft.Azure.Devices.Client; // API für: 
-using System;
-// 1. Verbindung zwischen IoT-Hub und Gerät
-// 2. Nachricht zu schicken
-// 3. Nachricht zu bekommen
-
+﻿using System;
 using System.Diagnostics; // für error
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Azure.Devices.Client; // API für: 
+// 1. Verbindung zwischen IoT-Hub und Gerät
+// 2. Nachricht zu schicken
+// 3. Nachricht zu bekommen
+
 
 namespace CO2
 {
     public partial class Form1 : Form
     {
-        public string conString = " ";
+
+        public string myConString = "";
+        int period = 10;
+        bool myFlag = true;
+        
         public Form1()
         {
             InitializeComponent();
             ResetConString();
+            period = System.Convert.ToInt32(comboBox1.Text);
         }
 
         public class Device
@@ -81,8 +86,18 @@ namespace CO2
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Device IoTHubClient = new Device(conString);
-            IoTHubClient.SendMessageToAzureIoTHub("Test\n");
+            if (myFlag)
+            {
+                this.timer1.Start();
+                btnSend.Text = "Stop";
+                myFlag = false;
+            }
+            else
+            {
+                this.timer1.Stop();
+                btnSend.Text = "Start";
+                myFlag = true;
+            }
         }
 
 
@@ -99,11 +114,27 @@ namespace CO2
         public void ResetConString()
         {
             txtboxEinstellungConnectionString.Text = "HostName=my-IoT-Hub26.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey=VPLcTwLo0TvOMQphFd1Wf7s0HXj7fbcOGyYaIsTKrQc=";
-            conString = txtboxEinstellungConnectionString.Text;
+            myConString = txtboxEinstellungConnectionString.Text;
         }
 
         private void btnEinstellungAktualisieren_Click(object sender, EventArgs e)
         {
+            period = System.Convert.ToInt32(comboBox1.Text);
+        }
+
+        // increase and reset progressbar
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (progressBar1.Value != 100)
+                this.progressBar1.Increment(50 / period);
+            else
+            {
+                Device myIoTHubClient = new Device(myConString);
+                myIoTHubClient.SendMessageToAzureIoTHub("Test");
+                progressBar1.Value = 0;
+            }
+
+
         }
     }
 }
