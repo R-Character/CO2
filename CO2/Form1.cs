@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.Azure.Devices.Client; // API für: 
+using System;
 using System.Diagnostics; // für error
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Azure.Devices.Client; // API für: 
 // 1. Verbindung zwischen IoT-Hub und Gerät
 // 2. Nachricht zu schicken
 // 3. Nachricht zu bekommen
@@ -17,7 +17,7 @@ namespace CO2
         public string myConString = "";
         int period = 10;
         bool myFlag = true;
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace CO2
 
         public class Device
         {
-            DeviceClient myDev;
+            DeviceClient myDev; // whats this
 
             public Device(string ConnectionString)
             {
@@ -114,7 +114,7 @@ namespace CO2
         public void ResetConString()
         {
             txtboxEinstellungConnectionString.Text = "HostName=my-IoT-Hub26.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey=VPLcTwLo0TvOMQphFd1Wf7s0HXj7fbcOGyYaIsTKrQc=";
-            myConString = txtboxEinstellungConnectionString.Text;
+            myConString = txtboxEinstellungConnectionString.Text; // in update click
         }
 
         private void btnEinstellungAktualisieren_Click(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace CO2
                 this.progressBar1.Increment(50 / period);
             else
             {
-                Device myIoTHubClient = new Device(myConString);
+                Device myIoTHubClient = new Device(myConString); // overflow
                 myIoTHubClient.SendMessageToAzureIoTHub("Test");
                 progressBar1.Value = 0;
             }
