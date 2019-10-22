@@ -13,7 +13,7 @@ namespace CO2
 {
     public partial class Form1 : Form
     {
-        public string conString = " ";
+        public string conString = "  ";
         public Form1()
         {
             InitializeComponent();
