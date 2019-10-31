@@ -39,6 +39,7 @@
             this.Personen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtboxEinstellungConnectionString = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkInitialWert)).BeginInit();
@@ -80,6 +81,7 @@
             this.tabHome.Controls.Add(this.RaumGroesse);
             this.tabHome.Controls.Add(this.InitialWert);
             this.tabHome.Controls.Add(this.Personen);
+            this.tabHome.Controls.Add(this.label10);
             this.tabHome.Controls.Add(this.label3);
             this.tabHome.Controls.Add(this.label2);
             this.tabHome.Controls.Add(this.label9);
@@ -184,6 +186,16 @@
             this.label2.Size = new System.Drawing.Size(143, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Anzahl der Personen";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(330, 163);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 20);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "ppm";
             // 
             // label7
             // 
@@ -326,15 +338,15 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(330, 163);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 20);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "ppm";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(130, 379);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(214, 20);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Bereit Nachricht zu empfangen";
             // 
             // Form1
             // 
@@ -379,6 +391,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox Fenster;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 

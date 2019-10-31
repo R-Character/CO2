@@ -14,8 +14,10 @@ namespace CO2
         public Form1()
         {
             InitializeComponent();
+            label10.Hide();
             txtboxEinstellungConnectionString.Text = myDevice.GetConString();
             period = Convert.ToInt32(value: comboBox1.Text);
+
         }
 
         private void BtnSend_Click(object sender, EventArgs e)
@@ -25,6 +27,8 @@ namespace CO2
                 RaumGroesse.Enabled = trkInitialWert.Enabled = myFlag =
                     tabEinstellung.Enabled = InitialWert.Enabled = false;
                 btnSend.Text = "Stop";
+
+                label10.Show();
                 this.timer1.Start();
             }
             else
@@ -32,6 +36,7 @@ namespace CO2
                 RaumGroesse.Enabled = trkInitialWert.Enabled = myFlag =
                     tabEinstellung.Enabled = InitialWert.Enabled = true;
                 btnSend.Text = "Start";
+                label10.Hide();
                 this.timer1.Stop();
             }
         }
